@@ -59,7 +59,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1>Todo Dashboard</h1>
+      <h1 style={{fontWeight:800,fontSize:'40px',marginBottom:'100px',textDecoration:'underline'}}>Todo Dashboard</h1>
       <div className="dashboard-controls">
         <Filter setFilter={setFilter} />
         <AddTodo addTodo={addTodo} />
