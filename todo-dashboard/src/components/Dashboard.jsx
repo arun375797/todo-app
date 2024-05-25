@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/todos');
+      const response = await axios.get('https://backend-11v2.onrender.com/api/todos');
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   const addTodo = async (description, status) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/todos', { description, status });
+      const response = await axios.post('https://backend-11v2.onrender.com/api/todos', { description, status });
       setTodos([...todos, response.data]);
     } catch (error) {
       console.error('Error adding todo:', error);
@@ -33,7 +33,7 @@ const Dashboard = () => {
 
   const deleteTodo = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/todos/${id}`);
+      await axios.delete(`https://backend-11v2.onrender.com/api/todos/${id}`);
       setTodos(todos.filter(todo => todo._id !== id));
     } catch (error) {
       console.error('Error deleting todo:', error);
@@ -44,7 +44,7 @@ const Dashboard = () => {
     try {
       const todo = todos.find(todo => todo._id === id);
       const updatedStatus = todo.status === 'completed' ? 'ongoing' : 'completed';
-      const response = await axios.put(`http://localhost:5000/api/todos/${id}`, { status: updatedStatus });
+      const response = await axios.put(`https://backend-11v2.onrender.com/api/todos/${id}`, { status: updatedStatus });
       const updatedTodo = response.data;
       setTodos(todos.map(todo => (todo._id === id ? updatedTodo : todo)));
     } catch (error) {
